@@ -1,0 +1,124 @@
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#container {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(4, auto);
+    grid-template-areas:
+    "header"
+    "nav"
+    "main"
+    "footer"
+}
+
+header {
+grid-area: header;
+display: flex;
+flex-direction: column;
+background-color: black;
+color: white;
+text-align: center;
+}
+
+nav {
+grid-area: nav;
+background-color: rgb(74, 69, 69);
+display: flex;
+justify-content: space-around;
+}
+
+nav a {   color: white;
+    text-decoration: none;
+    padding: 10px 0;
+}
+
+main {
+    grid-area: main;
+}
+
+main h2 {
+    text-align: center;
+}
+
+main p {    padding: 0 10px;
+}
+
+#movie-figures {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#movie-figures figure {
+    flex: 20%;
+    border: 2px solid lightgray;
+    padding: 5px;
+    text-align: center;
+    box-shadow: lightgray 0px 8px 24px;
+}
+
+#movie-figures img {
+    max-width: 100%;
+}
+
+footer {
+    grid-area: footer;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+/* Tablet */
+@media screen and (max-width: 900px) {
+    #container {
+        grid-template-columns: 30% auto;
+        grid-template-rows: 60px auto 60px;
+        grid-template-areas: 
+            "header main"
+            "nav main"
+            "footer main";
+    }
+    
+    #movie-figures figure {
+        flex: 30%;
+    }
+
+    nav {
+        flex-direction: column;
+        justify-content: start;   
+    }
+
+    nav a {
+        border-bottom: 1px solid black;
+    }
+
+}
+
+/* Mobile */
+@media screen and (max-width: 500px) {
+    #container {
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(4, auto);
+        grid-template-areas: 
+            "header"
+            "nav"
+            "main"
+            "footer";
+    }
+
+    #movie-figures figure {
+        flex: 100%;
+    }
+
+    nav {
+        text-align: center;
+    }
+
+    nav a {
+        border: none;
+    }
+}
